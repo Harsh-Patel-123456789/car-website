@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Your Car - Car Buy/Sell</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script>
+        function validateForm(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const model = document.getElementById('model').value.trim();
+            const price = document.getElementById('price').value.trim();
+            const details = document.getElementById('details').value.trim();
+            let valid = true;
+
+            // Basic validation for car model
+            const modelPattern = /^[A-Za-z0-9\s]+$/;
+            if (!model) {
+                alert('Car model is required.');
+                valid = false;
+            } else if (!modelPattern.test(model)) {
+                alert('Car model can only contain letters, numbers, and spaces.');
+                valid = false;
+            }
+
+            // Price validation
+            const priceNum = parseFloat(price);
+            if (!price) {
+                alert('Price is required.');
+                valid = false;
+            } else if (isNaN(priceNum) || priceNum <= 0) {
+                alert('Price must be a positive number.');
+                valid = false;
+            }
+
+            // Details validation
+            if (!details) {
+                alert('Details are required.');
+                valid = false;
+            }
+
+            // If validation passes, submit the form
+            if (valid) {
+                alert('Form submitted successfully!'); // Replace with actual form submission
+                // document.querySelector('form').submit(); // Uncomment this line to actually submit the form
+            }
+        }
+    </script>
+</head>
+
+<body background="E:\WebTechnology\Images\websiteimage4.jpeg">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="login.html"> CarMarket
+            </a>
+        <button class="navbar-toggler" type="button" data - toggle="collapse" data - target="#navbarNav">
+            <span class="navbar-toggler-icon">
+                </span>
+                    </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="login.html">Login
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="suv.html"> SUV
+                        </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="sedan.html"> Sedan
+                        </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="hatchback.html"> HatchBack
+                        </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary text-white" href="sell.html"> Sell
+                        </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html"> About Us
+                        </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h2 class="mt-5">Sell Your Car</h2>
+        <form onsubmit="validateForm(event)">
+            <div class="form-group">
+                <label for="model">Car Model</label>
+                <input type="text" class="form-control" id="model" required>
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="number" class="form-control" id="price" required>
+            </div>
+            <div class="form-group">
+                <label for="details">Details</label>
+                <textarea class="form-control" id="details" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>
