@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Car Buy/Sell</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script>
+        function validateForm(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const email = document.getElementById('email').value.trim(); // Trim whitespace
+            const password = document.getElementById('password').value;
+
+            // Basic validation
+            if (!email) {
+                alert('Email address is required.');
+                return;
+            }
+            if (!password) {
+                alert('Password is required.');
+                return;
+            }
+
+            // Email format validation (basic)
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailPattern.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            // Password length validation
+            if (password.length < 8) {
+                alert('Password must be at least 8 characters long.');
+                return;
+            }
+
+            // If validation passes, submit the form
+            alert('Form submitted successfully!'); // Replace with actual form submission
+            // document.querySelector('form').submit(); // Uncomment this line to actually submit the form
+        }
+    </script>
+
+
+</head>
+
+<body background="E:\WebTechnology\Images\websiteimage4.jpeg">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="login.html"> CarMarket
+            </a>
+        <button class="navbar-toggler" type="button" data - toggle="collapse" data - target="#navbarNav">
+            <span class="navbar-toggler-icon">
+                </span>
+                    </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="login.html">Login
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="suv.html"> SUV
+                        </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="sedan.html"> Sedan
+                        </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="hatchback.html"> HatchBack
+                        </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary text-white" href="sell.html"> Sell
+                        </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html"> About Us
+                        </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2 class="mt-5"> Login
+        </h2>
+        <form onsubmit="validateForm(event)">
+            <div class="form-group">
+                <label for="email"> Email address
+                    </label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password"> Password
+                    </label>
+                <input type="password" class="form-control" id="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary"> Login
+                </button>
+        </form>
+    </div>
+
+</body>
+
+</html>
